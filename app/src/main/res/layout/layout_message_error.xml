@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/error_layout_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="@dimen/error_layout_image_size"
+        android:layout_height="@dimen/error_layout_image_size"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_wifi_off" />
+
+    <TextView
+        style="@style/Base.Textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/error_layout_message_margin_top"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:text="@string/error_layout_message"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/error_layout_retry_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/error_layout_button_margin_top"
+        android:background="@color/marvel_red"
+        android:padding="@dimen/error_layout_button_padding"
+        android:text="@string/error_layout_retry_button_message"
+        android:textColor="@color/white" />
+
+</LinearLayout>

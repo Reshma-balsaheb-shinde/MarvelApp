@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_graph_allcharacters"
+        android:icon="@drawable/ic_3_dot"
+        android:title="All Characters" />
+
+    <item
+        android:id="@+id/nav_graph_fav"
+        android:icon="@drawable/ic_fav"
+        android:title="Favourite Characters" />
+
+
+</menu>

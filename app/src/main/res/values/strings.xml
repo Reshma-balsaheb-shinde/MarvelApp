@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Marvel App</string>
+    <string name="activity_detail_title">title</string>
+    <string name="error_layout_message">"Internet Connection not availabel "</string>
+    <string name="error_layout_retry_button_message">Retry</string>
+    <string name="version_info">Version - 1.0.0</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_result_found">"Currently no characters are added to favourite character list. "</string>
+
+</resources>
