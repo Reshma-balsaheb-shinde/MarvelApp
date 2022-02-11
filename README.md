@@ -9,9 +9,10 @@ This is an Android application developed with kotlin that uses the Marvel API to
 - Character description (If available)
 - Favorite characters list
 
-![Screenshot_1644583911](https://user-images.githubusercontent.com/98522570/153600578-9007e640-9c1b-44dd-bd9d-b5c018d5e477.png | width=200)
-![Screenshot_1644583930](https://user-images.githubusercontent.com/98522570/153600660-4487face-f5a7-4565-a3bb-6908d835faec.png | width=200)
-![Screenshot_1644583864](https://user-images.githubusercontent.com/98522570/153600671-07c611fb-5419-43bf-893c-8ba4feaf07fa.png | width=200)
+<img src="https://user-images.githubusercontent.com/98522570/153600578-9007e640-9c1b-44dd-bd9d-b5c018d5e477.png" width="230" height="400">
+<img src="https://user-images.githubusercontent.com/98522570/153600660-4487face-f5a7-4565-a3bb-6908d835faec.png" width="230" height="400">
+<img src="https://user-images.githubusercontent.com/98522570/153600671-07c611fb-5419-43bf-893c-8ba4feaf07fa.png" width="230" height="400">
+
 
 ### Libraries and Tools 
 - ViewModel
