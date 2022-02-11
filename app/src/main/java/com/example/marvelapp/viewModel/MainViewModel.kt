@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.launch
 
 @ExperimentalPagingApi
-class MainViewModel(val repository: CharacterRepository = CharacterRepository.getInstance() ) :
+class MainViewModel(val repository: CharacterRepository ) :
     ViewModel() {
 
     val searchQuery = MutableStateFlow("")
@@ -21,8 +21,6 @@ class MainViewModel(val repository: CharacterRepository = CharacterRepository.ge
     val searchResult = searchQuery.flatMapLatest { query ->
         repository.searchCharacter(query).cachedIn(viewModelScope)
     }.asLiveData()
-
-     var isNetworkAvailable : Boolean = false
 
     fun fetchCharacterData(): Flow<PagingData<Results>> {
 

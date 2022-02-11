@@ -6,18 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.marvelapp.Application.GlideApp
+import com.example.marvelapp.Application.MarvelApplication
 import com.example.marvelapp.adapter.CharacterAdapter
 import com.example.marvelapp.adapter.CharactersLoadStateAdapter
 import com.example.marvelapp.common.NetworkUtils
 import com.example.marvelapp.databinding.FragmentCharacterListBinding
 import com.example.marvelapp.databinding.FragmentCharacterListBindingImpl
 import com.example.marvelapp.models.Results
+import com.example.marvelapp.repository.CharacterRepository
 import com.example.marvelapp.viewModel.MainViewModel
+import com.example.marvelapp.viewModel.MainViewModelFactory
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
@@ -26,14 +28,22 @@ import kotlinx.coroutines.launch
 class CharacterListFr : Fragment(), CharacterAdapter.CharacterClickListener {
     lateinit var binding: FragmentCharacterListBinding
    private lateinit var mainViewModel: MainViewModel
+   private lateinit var viewModelFactory: MainViewModelFactory
     private lateinit var CharactersAdapter: CharacterAdapter
+    lateinit var repository : CharacterRepository
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCharacterListBindingImpl.inflate(inflater)
-        mainViewModel = defaultViewModelProviderFactory.create(MainViewModel::class.java)
+         repository = (activity?.application as MarvelApplication).characterRepository
+
+        viewModelFactory = MainViewModelFactory(repository)
+        mainViewModel = ViewModelProvider(this, viewModelFactory)
+            .get(MainViewModel::class.java)
+
 
         binding.mainActivityErrorView.errorLayoutRetryButton.setOnClickListener {
             setupView()

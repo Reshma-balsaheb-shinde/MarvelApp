@@ -13,23 +13,4 @@ import com.bumptech.glide.request.RequestOptions
 @GlideModule
 class GlideModule : AppGlideModule() {
 
-   /* private val uncaughtThrowableStrategy = GlideExecutor.UncaughtThrowableStrategy {}
-
-    override fun applyOptions(context: Context, builder: GlideBuilder) {
-        builder.setDefaultRequestOptions {
-            RequestOptions()
-                .dontAnimate()
-                .dontTransform()
-                .encodeFormat(Bitmap.CompressFormat.JPEG)
-        }
-            .setLogLevel(Log.ERROR)
-            .setImageDecoderEnabledForBitmaps(true)
-            .setDiskCacheExecutor(
-                newDiskCacheBuilder()
-                    .setUncaughtThrowableStrategy(
-                        uncaughtThrowableStrategy
-                    ).build()
-            )
-        super.applyOptions(context, builder)
-    }*/
 }

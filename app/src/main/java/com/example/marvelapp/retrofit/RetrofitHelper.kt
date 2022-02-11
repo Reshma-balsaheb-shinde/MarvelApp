@@ -13,13 +13,10 @@ import java.util.concurrent.TimeUnit
 import okhttp3.HttpUrl
 
 
-
-
 object RetrofitHelper {
 
     private const val TIMEOUT = 30L
-    private const val baseurl =  "https://gateway.marvel.com:443/v1/public/"
-
+    private const val baseurl = "https://gateway.marvel.com:443/v1/public/"
 
     private val authInterceptor = { chain: Interceptor.Chain ->
         val ts = System.currentTimeMillis()
@@ -44,14 +41,14 @@ object RetrofitHelper {
         chain.proceed(updated)
     }
 
-
-   private val okHttpClientBuilder = OkHttpClient.Builder()
+    private val okHttpClientBuilder = OkHttpClient.Builder()
         .connectTimeout(TIMEOUT, TimeUnit.SECONDS)
         .readTimeout(TIMEOUT, TimeUnit.SECONDS)
         .addInterceptor(authInterceptor)
+        .addInterceptor(getHttpLogger())
         .build()
 
-    fun getInstance() : Retrofit {
+    fun getInstance(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClientBuilder)
@@ -59,10 +56,14 @@ object RetrofitHelper {
             .build()
     }
 
+    private fun getHttpLogger(): HttpLoggingInterceptor {
+        return HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+    }
 
-     private fun String.encrypt(): String =
-    BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray()))
-        .toString(16).padStart(32, '0')
-
+    private fun String.encrypt(): String =
+        BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray()))
+            .toString(16).padStart(32, '0')
 
 }

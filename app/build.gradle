@@ -40,6 +40,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+        }
+    }
 }
 
 dependencies {
@@ -81,6 +86,37 @@ dependencies {
 
     // Android Jetpack Paging 3.0
     implementation "androidx.paging:paging-runtime:3.0.0-alpha06"
+
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+
+    testImplementation "androidx.room:room-testing:2.2.6"
+
+    testImplementation "junit:junit:4.13.2"
+
+    testImplementation "org.mockito:mockito-core:3.3.3"
+    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.4'
+
+    testImplementation "com.google.truth:truth:1.1.2"
+
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.4"
+
+    testImplementation "org.robolectric:robolectric:4.5.1"
+
+    androidTestImplementation "androidx.test.ext:junit-ktx:1.1.2"
+
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.3.0"
+
+    androidTestImplementation "com.google.truth:truth:1.1.2"
+
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+
+    androidTestImplementation "androidx.test:rules:1.3.0"
+
+    androidTestImplementation "androidx.test:runner:1.3.0"
+
+    androidTestImplementation "androidx.test:core-ktx:1.3.0"
+
 
 
 }

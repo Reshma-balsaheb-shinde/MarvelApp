@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 
 @ExperimentalPagingApi
-class FavouriteCharacterViewModel(val characterRepository: CharacterRepository = CharacterRepository.getInstance() ) :
+class FavouriteCharacterViewModel(val characterRepository: CharacterRepository ) :
     ViewModel() {
 
     fun addToFavourite(characterResult: Results) =
